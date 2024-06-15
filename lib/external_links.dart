@@ -15,11 +15,11 @@ enum ExternalLinks {
   const ExternalLinks._(this.mode);
 
   /// [LaunchMode]はurl_luncherに定義されたenumで、URLを起動するモードを指定する
-  /// enumのフィールドはコンストな値（変更不可能な値）のみを持つことができる。
+  /// enumのフィールドはコンストな値（後から変更されない値）のみを持つことができる。
   final LaunchMode mode;
 }
 
-/// 動的な値を持たせたい場合は、extensionを使ってメソッドを追加する。
+/// 動的な値を持たせたい場合は、extensionを使ってゲッターで受け取る。
 extension ExternalLinksExtension on ExternalLinks {
   /// 接続先のurlを返す
   String get url {
@@ -28,8 +28,7 @@ extension ExternalLinksExtension on ExternalLinks {
         return 'https://qiita.com/';
       case ExternalLinks.zenn:
         return 'https://zenn.dev/';
-        // ここに直接switch文を書けない
-        // メソッド化して、その結果を受け取る
+      // 直接分岐を書いても良いが、わかりづらいので今回はメソッドの戻り値で受け取る
       case ExternalLinks.changeLink:
         return _getChangeLinksUrl();
     }
