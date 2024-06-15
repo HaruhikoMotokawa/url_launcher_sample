@@ -1,8 +1,10 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher_sample/flavor.dart';
 import 'package:url_launcher_sample/bottom_sheet/action_bottom_sheet.dart';
+import 'package:url_launcher_sample/flavor.dart';
 
 Future<Flavor> showSelectFlavorBottomSheet(BuildContext context) async {
   final completer = Completer<Flavor>();
